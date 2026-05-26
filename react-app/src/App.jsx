@@ -1,6 +1,7 @@
 //import React from 'react';
 
 import './App.css';
+import JournalItem from './components/JournalItem/JournalItem';
 import UserCard from './components/UserCard/UserCard';
 
 
@@ -13,11 +14,14 @@ function App() {
   };
 
   return (
-    <UserCard
-      name={userData.name}
-      age={userData.age}
-      email={userData.email}
-    />
+    <>
+      <UserCard
+        name={userData.name}
+        age={userData.age}
+        email={userData.email}
+      />
+      <JournalItem />
+    </>
   );
 }
 
