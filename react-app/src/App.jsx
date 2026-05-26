@@ -1,50 +1,23 @@
 //import React from 'react';
 
 import './App.css';
-import Button from './components/Button/Button';
-import CardButton from './components/CardButton/CardButton';
-import JournalItem from './components/JournalItem/JournalItem';
+import UserCard from './components/UserCard/UserCard';
+
 
 function App() {
 
-  const data = [
-    {
-      title: 'Подготовка к обновлению курсов',
-      date: new Date(),
-      text: 'Горные походы открывают удивительные природные ландшафты'
-    },
-    {
-      title: 'Поход в годы',
-      date: new Date(),
-      text: 'Думал, что очень много времени'
-    }
-  ];
+  const userData = {
+    name: 'Анна Иванова',
+    age: 28,
+    email: 'anna@example.com'
+  };
 
   return (
-    //Вот это react.fragment нужен для обертки содержимого компонента.
-    <>
-      <h1>Заголовок</h1>
-      <p>Какой-то текст</p>
-      <Button />
-      <CardButton>
-        Новое воспоминание+
-      </CardButton>
-      <CardButton>
-        <JournalItem
-          title={data[0].title}
-          text={data[0].text}
-          date={data[0].date}
-        />
-      </CardButton>
-      <CardButton>
-        <JournalItem
-          title={data[1].title}
-          text={data[1].text}
-          date={data[1].date}
-        />
-      </CardButton>
-    </>
-    //
+    <UserCard
+      name={userData.name}
+      age={userData.age}
+      email={userData.email}
+    />
   );
 }
 
