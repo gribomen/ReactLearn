@@ -1,8 +1,11 @@
 import './Button.css';
 function Button() {
 
+	const clicked = () => {
+		console.log('Привет!');
+	};
 	return (
-		<button className='button accent'>Сохранить</button>
+		<button onClick={clicked} className='button accent'>Сохранить</button>
 	);
 }
 
