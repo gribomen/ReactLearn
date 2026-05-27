@@ -1,26 +1,21 @@
 //import React from 'react';
-
 import './App.css';
-import JournalItem from './components/JournalItem/JournalItem';
-import UserCard from './components/UserCard/UserCard';
+import Button from './components/Button/Button';
+import HeaderText from './components/HeaderText/HeaderText';
 
 
 function App() {
 
-  const userData = {
-    name: 'Анна Иванова',
-    age: 28,
-    email: 'anna@example.com'
-  };
 
   return (
     <>
-      <UserCard
-        name={userData.name}
-        age={userData.age}
-        email={userData.email}
+      <HeaderText
+        fontSize='32'
+        text='Поиск'
       />
-      <JournalItem />
+      <Button
+        text="Искать"
+      />
     </>
   );
 }
