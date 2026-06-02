@@ -6,7 +6,8 @@ import CardButton from './components/CardButton/CardButton';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
-import { useState } from 'react';
+import JournalForm from './components/JournalForm/JournalForm';
+
 function App() {
 
   const data = [
@@ -21,12 +22,6 @@ function App() {
       text: 'Думал, что очень много времени'
     }
   ];
-
-  const [inputData, setInputData] = useState('');
-  const inputChange = (event) => {
-    setInputData(event.target.value);
-    console.log(inputData);
-  };
 
   return (
 
@@ -52,7 +47,7 @@ function App() {
         </JournalList>
       </LeftPanel>
       <Body>
-        <input type="text" value={inputData} onChange={inputChange} />
+        <JournalForm />
       </Body>
 
     </div>
