@@ -1,8 +1,12 @@
-//import React from 'react';
-
 import './App.css';
-import Button from './components/Button/Button';
+import LeftPanel from './components/layouts/LeftPanel/LeftPanel';
+import Body from './components/layouts/Body/Body';
 import JournalItem from './components/JournalItem/JournalItem';
+import CardButton from './components/CardButton/CardButton';
+import Header from './components/Header/Header';
+import JournalList from './components/JournalList/JournalList';
+import JournalAddButton from './components/JournalAddButton/JournalAddButton';
+import JournalForm from './components/JournalForm/JournalForm';
 
 function App() {
 
@@ -20,22 +24,42 @@ function App() {
   ];
 
   return (
-    //Вот это react.fragment нужен для обертки содержимого компонента.
-    <>
-      <h1>Заголовок</h1>
-      <p>Какой-то текст</p>
-      <Button />
-      <JournalItem
-        title={data[0].title}
-        text={data[0].text}
-        date={data[0].date}
-      />
-      <JournalItem
-        title={data[1].title}
-        text={data[1].text}
-        date={data[1].date}
-      />
-    </>
+
+    <div className='app'>
+      <LeftPanel>
+        <Header />
+        <JournalAddButton />
+        <JournalList>
+          {/*{[<Button>1</Button>, <Button>2</Button>]}*/}
+          {data.map(journalItem =>
+            <CardButton>
+              <JournalItem
+                title={journalItem.title}
+                text={journalItem.text}
+                date={journalItem.date}
+              />
+            </CardButton>)}
+          {/*<CardButton>
+            <JournalItem
+              title={data[0].title}
+              text={data[0].text}
+              date={data[0].date}
+            />
+          </CardButton>
+          <CardButton>
+            <JournalItem
+              title={data[1].title}
+              text={data[1].text}
+              date={data[1].date}
+            />
+          </CardButton>*/}
+        </JournalList>
+      </LeftPanel>
+      <Body>
+        <JournalForm />
+      </Body>
+
+    </div>
     //
   );
 }
