@@ -30,7 +30,16 @@ function App() {
         <Header />
         <JournalAddButton />
         <JournalList>
-          <CardButton>
+          {/*{[<Button>1</Button>, <Button>2</Button>]}*/}
+          {data.map(journalItem =>
+            <CardButton>
+              <JournalItem
+                title={journalItem.title}
+                text={journalItem.text}
+                date={journalItem.date}
+              />
+            </CardButton>)}
+          {/*<CardButton>
             <JournalItem
               title={data[0].title}
               text={data[0].text}
@@ -43,7 +52,7 @@ function App() {
               text={data[1].text}
               date={data[1].date}
             />
-          </CardButton>
+          </CardButton>*/}
         </JournalList>
       </LeftPanel>
       <Body>
