@@ -11,11 +11,13 @@ import Body from './components/layouts/Body/Body';
 
 const INITIAL_ITEM = [
   {
+    id: 1,
     title: 'Подготовка к обновлению курсов',
     date: new Date(),
     text: 'Горные походы открывают удивительные природные ландшафты'
   },
   {
+    id: 2,
     title: 'Поход в годы',
     date: new Date(),
     text: 'Думал, что очень много времени'
@@ -29,18 +31,26 @@ function App() {
     setItems(oldItems => [...oldItems, {
       text: item.text,
       title: item.title,
-      date: new Date(item.date)
+      date: new Date(item.date),
+      id: Math.max(oldItems.map(i => i.id)) + 1
     }]);
   };
-  return (
 
+  const sortItems = (a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    }
+    return - 1;
+  };
+
+  return (
     <div className='app'>
       <LeftPanel>
         <Header />
         <JournalAddButton />
         <JournalList>
-          {journalItems.map(journalItem =>
-            <CardButton>
+          {journalItems.sort(sortItems).map(journalItem =>
+            <CardButton key={journalItem.id}>
               <JournalItem
                 title={journalItem.title}
                 text={journalItem.text}
@@ -52,9 +62,7 @@ function App() {
       <Body>
         <JournalForm onSubmit={addItem} />
       </Body>
-
     </div>
-
   );
 }
 
