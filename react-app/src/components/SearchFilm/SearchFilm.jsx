@@ -1,5 +1,5 @@
 import './SearchFilm.css';
-function SearchFilm({ isIcon, placeholder }) {
+function SearchFilm({ isIcon, placeholder, size }) {
     let icon;
     if (isIcon) {
         icon = <img src="../../../public/search.svg" alt="Иконка поиска" />;
@@ -7,7 +7,7 @@ function SearchFilm({ isIcon, placeholder }) {
     return (
         <div className='wraper-search'>
             {icon}
-            <input className='search' type="text" placeholder={placeholder} />
+            <input className='search' type="text" size={size} placeholder={placeholder} />
         </div>
     );
 }

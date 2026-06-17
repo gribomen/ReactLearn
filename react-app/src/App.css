@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.wrapper-search {
+  display: flex;
+  margin-bottom: 80px;
+  gap: 8px;
+}

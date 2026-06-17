@@ -10,9 +10,10 @@
 
 .btn_primary:hover {
     background: rgb(113, 98, 241);
+    cursor: pointer;
 }
 
-.btn_primary:focus-visible {
+.btn_primary:focus {
     background: rgb(108, 93, 237);
 }
 

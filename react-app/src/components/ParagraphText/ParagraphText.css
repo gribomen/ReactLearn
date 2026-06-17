@@ -1,7 +1,9 @@
 .p-text {
+    white-space: pre-line;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     color: #8e95a9;
+    margin: 24px 0;
 }
 
 .fs16 {
