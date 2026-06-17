@@ -1,0 +1,31 @@
+.item-bar {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: #a8aebf;
+}
+
+.active {
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.count-film {
+    padding: 0 7px 0 8px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 171%;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: #7b6ef6;
+    border-radius: 100%;
+}

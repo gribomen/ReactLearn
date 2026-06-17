@@ -1,0 +1,26 @@
+.btn {
+    border-radius: 12px;
+    padding: 16px 32px;
+}
+
+.btn_primary {
+    border: 2px solid #7b6ef6;
+    background: #7b6ef6;
+}
+
+.btn_primary:hover {
+    background: rgb(113, 98, 241);
+    cursor: pointer;
+}
+
+.btn_primary:focus {
+    background: rgb(108, 93, 237);
+}
+
+.btnText {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+}

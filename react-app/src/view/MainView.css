@@ -1,0 +1,4 @@
+.main {
+    backdrop-filter: blur(40px);
+    background: rgba(18, 24, 41, 0.8);
+}
