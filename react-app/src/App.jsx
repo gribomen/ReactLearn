@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import JournalItem from './components/JournalItem/JournalItem';
-import CardButton from './components/CardButton/CardButton';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
@@ -10,16 +8,18 @@ import LeftPanel from './components/layouts/LeftPanel/LeftPanel';
 import Body from './components/layouts/Body/Body';
 
 const INITIAL_ITEM = [
-  {
-    title: 'Подготовка к обновлению курсов',
-    date: new Date(),
-    text: 'Горные походы открывают удивительные природные ландшафты'
-  },
-  {
-    title: 'Поход в годы',
-    date: new Date(),
-    text: 'Думал, что очень много времени'
-  }
+  //{
+  //  id: 1,
+  //  title: 'Подготовка к обновлению курсов',
+  //  date: new Date(),
+  //  text: 'Горные походы открывают удивительные природные ландшафты'
+  //},
+  //{
+  //  id: 2,
+  //  title: 'Поход в годы',
+  //  date: new Date(),
+  //  text: 'Думал, что очень много времени'
+  //}
 ];
 
 function App() {
@@ -29,32 +29,22 @@ function App() {
     setItems(oldItems => [...oldItems, {
       text: item.text,
       title: item.title,
-      date: new Date(item.date)
+      date: new Date(item.date),
+      id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1
     }]);
   };
-  return (
 
+  return (
     <div className='app'>
       <LeftPanel>
         <Header />
         <JournalAddButton />
-        <JournalList>
-          {journalItems.map(journalItem =>
-            <CardButton>
-              <JournalItem
-                title={journalItem.title}
-                text={journalItem.text}
-                date={journalItem.date}
-              />
-            </CardButton>)}
-        </JournalList>
+        <JournalList items={journalItems} />
       </LeftPanel>
       <Body>
         <JournalForm onSubmit={addItem} />
       </Body>
-
     </div>
-
   );
 }
 
