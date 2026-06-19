@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('data'));
     if (data) {
-      console.log(data);
       setItems(data.map(item => ({
         ...item,
         date: new Date(item.date)
@@ -22,6 +21,11 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if (journalItems.length) {
+      localStorage.setItem('data', JSON.stringify(journalItems));
+    }
+  }, [journalItems]);
 
   const addItem = item => {
     setItems(oldItems => [...oldItems, {
