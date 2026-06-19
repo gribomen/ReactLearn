@@ -10,11 +10,11 @@ function ItemBar({ text, icon = 'none', active = '' }) {
             break;
         }
         case 'exit': {
-            el = <img src="../../../public/exit.svg" alt="Иконка выхода" srcset="" />;
+            el = <img src="../../../public/exit.svg" alt="Иконка выхода" />;
             break;
         }
         case 'profile': {
-            el = <img src="../../../public/user-profile.svg" alt="Иконка выхода" srcset="" />;
+            el = <img src="../../../public/user-profile.svg" alt="Иконка выхода" />;
             break;
         }
     }
