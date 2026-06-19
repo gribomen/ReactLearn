@@ -1,7 +1,8 @@
-import './HeaderBar.css';
+import styles from './HeaderBar.module.css';
+
 function HeaderBar({ children }) {
     return (
-        <nav className='header-bar'>{children}</nav>
+        <nav className={styles['header-bar']}>{children}</nav>
     );
 }
 

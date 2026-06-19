@@ -1,8 +1,9 @@
-import './HeaderText.css';
+import styles from './HeaderText.module.css';
+import cn from 'classnames';
 function HeaderText({ fontSize, text }) {
 
     return (
-        <span className={`header fs${fontSize}`}>{text}</span>
+        <span className={cn(styles.header, styles[`fs${fontSize}`])}>{text}</span>
     );
 }
 

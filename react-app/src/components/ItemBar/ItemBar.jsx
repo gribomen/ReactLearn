@@ -1,9 +1,12 @@
-import './ItemBar.css';
+import styles from './ItemBar.module.css';
+import cn from 'classnames';
+
+
 function ItemBar({ text, icon = 'none', active = '' }) {
     let el;
     switch (icon) {
         case 'count': {
-            el = <div className={'count-film hidden'} id="count-film"></div>;
+            el = <div className={cn(styles['count-film'], styles.hidden)} id="count-film"></div>;
             break;
         }
         case 'exit': {
@@ -16,7 +19,7 @@ function ItemBar({ text, icon = 'none', active = '' }) {
         }
     }
     return (
-        <div className={'item-bar ' + active}>{text}{el}</div>
+        <div className={cn(styles['item-bar'], styles[active])}>{text}{el}</div>
     );
 }
 

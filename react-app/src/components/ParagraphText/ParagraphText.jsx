@@ -1,7 +1,9 @@
-import './ParagraphText.css';
+import styles from './ParagraphText.module.css';
+import cn from 'classnames';
+
 function ParagraphText({ fontSize, text }) {
     return (
-        <p className={`p-text fs${fontSize}`} style={{ whiteSpace: 'pre-line' }}>{text}</p>
+        <p className={cn(styles['p-text'], styles[`fs${fontSize}`])} style={{ whiteSpace: 'pre-line' }}>{text}</p>
     );
 }
 

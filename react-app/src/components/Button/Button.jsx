@@ -1,7 +1,11 @@
-import './Button.css';
+import styles from './Button.module.css';
+import cn from 'classnames';
+
 function Button({ text }) {
 	return (
-		<button className='btn btn_primary'><span className='btnText'>{text}</span></button>
+		<button className={cn(styles.btn, styles['btn_primary'])}>
+			<span className={styles.btnText}>{text}</span>
+		</button>
 	);
 }
 

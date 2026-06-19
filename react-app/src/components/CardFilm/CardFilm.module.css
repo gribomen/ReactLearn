@@ -8,13 +8,13 @@
     background: rgba(32, 40, 62, 0.8);
 }
 
-.card-film_main-img {
+.card-film__main-img {
     margin-bottom: 16px;
     max-width: 100%;
     height: auto;
 }
 
-.card-film_description {
+.card-film__description {
     padding: 8px;
     display: flex;
     flex-direction: column;

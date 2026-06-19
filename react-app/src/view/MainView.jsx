@@ -1,5 +1,5 @@
 //import React from 'react';
-import './MainView.css';
+import styles from './MainView.module.css';
 import Button from '../components/Button/Button';
 import HeaderText from '../components/HeaderText/HeaderText';
 import HeaderNavPanel from '../components/HeaderNavPanel/HeaderNavPanel';
@@ -69,7 +69,7 @@ function MainView() {
     }];
 
     return (
-        <div className="main">
+        <div className={styles.main}>
             <HeaderNavPanel>
                 <HeaderBar>
                     <ItemBar text={'Поиск фильмов'} active={'active'} />
@@ -89,7 +89,7 @@ function MainView() {
               добавления в избранное.'
                     />
                 </>
-                <div className='wrapper-search'>
+                <div className={styles['wrapper-search']}>
                     <SearchFilm placeholder={'Введите название'} isIcon={true} size={40} />
                     <Button
                         text="Искать"

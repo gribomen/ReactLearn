@@ -1,7 +1,7 @@
-import './HeaderNavPanel.css';
+import styles from './HeaderNavPanel.module.css';
 function HeaderNavPanel({ children }) {
     return (
-        <header className='header-nav-panel'><img src="../../../public/bookmark.svg" alt="Логотип" />{children}</header>
+        <header className={styles['header-nav-panel']}><img src="../../../public/bookmark.svg" alt="Логотип" />{children}</header>
     );
 }
 

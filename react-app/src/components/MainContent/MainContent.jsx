@@ -1,7 +1,8 @@
-import './MainContent.css';
+import styles from './MainContent.module.css';
+
 function MainContent({ children }) {
     return (
-        <main className='main-content'>{children}</main>
+        <main className={styles['main-content']}>{children}</main>
     );
 }
 
