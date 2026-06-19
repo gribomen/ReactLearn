@@ -45,12 +45,37 @@ function JournalForm({ onSubmit }) {
 
     return (
         <form className={`${styles['journal-form']}`} onSubmit={addJournalItem}>
-            <input type="text" name='title' className={cn(styles['input'], {
-                [styles['invalid']]: !formValideState.title
-            })} />
-            <input type="date" name='date' className={`${styles['input']} ${formValideState.date ? '' : styles['invalid']}`} />
-            <input type="text" name='tag' />
-            <textarea name="text" id="" cols={30} rows={10} className={`${styles['input']} ${formValideState.text ? '' : styles['invalid']}`}></textarea>
+            <div>
+                <input type="text" name='title' className={cn(styles['input'], styles['input-title'], {
+                    [styles['invalid']]: !formValideState.title
+                })} />
+                {/*<button type="button" className={styles['btn-delete']}></button>*/}
+            </div>
+            <div className={styles['form-row']}>
+                <label htmlFor='date' className={styles['form-label']}>
+                    <img src="/calendary.svg" alt="Иконка календаря" />
+                    <span>Дата</span>
+                </label>
+                <input type="date" name='date'
+                    className={cn(styles['input'], {
+                        [styles['invalid']]: !formValideState.date
+                    })}
+                    id='date' />
+            </div>
+            <div className={styles['form-row']}>
+                <label htmlFor='tag' className={styles['form-label']}>
+                    <img src="/folder.svg" alt="Иконка папки" />
+                    <span>Метка</span>
+                </label>
+                <input type="text" name='tag'
+                    className={`${styles['input']}`}
+                    id='tag' />
+            </div>
+            <textarea name="text" id="" cols={32} rows={18}
+                className={cn(styles['input'], {
+                    [styles['invalid']]: !formValideState.text
+                })}>
+            </textarea>
             <Button text="Сохранить" type="submit" />
         </form>
     );
