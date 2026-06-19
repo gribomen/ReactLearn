@@ -90,7 +90,7 @@ function MainView() {
                     />
                 </>
                 <div className={styles['wrapper-search']}>
-                    <SearchFilm placeholder={'Введите название'} isIcon={true} size={40} />
+                    <SearchFilm placeholder={'Введите название'} isIcon={true} size={37} />
                     <Button
                         text="Искать"
                     />
