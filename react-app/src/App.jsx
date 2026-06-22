@@ -1,29 +1,14 @@
-//import React from 'react';
-
 import './App.css';
-import Button from './components/Button/Button';
-import JournalItem from './components/JournalItem/JournalItem';
-import UserCard from './components/UserCard/UserCard';
-
+import AutoHideMessage from './components/AutoHideMessage/AutoHideMessage';
+import NoteEditor from './components/NoteEditor/NoteEditor';
 
 function App() {
 
-  const userData = {
-    name: 'Анна Иванова',
-    age: 28,
-    email: 'anna@example.com'
-  };
-
   return (
-    <>
-      <UserCard
-        name={userData.name}
-        age={userData.age}
-        email={userData.email}
-      />
-      <JournalItem />
-      <Button />
-    </>
+    <div className='app'>
+      <AutoHideMessage />
+      <NoteEditor />
+    </div>
   );
 }
 
