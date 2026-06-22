@@ -1,13 +1,11 @@
 import './App.css';
-import AutoHideMessage from './components/AutoHideMessage/AutoHideMessage';
-import NoteEditor from './components/NoteEditor/NoteEditor';
+import PriceInput from './components/PriceInput/PriceInput';
 
 function App() {
 
   return (
     <div className='app'>
-      <AutoHideMessage />
-      <NoteEditor />
+      <PriceInput />
     </div>
   );
 }
