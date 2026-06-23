@@ -10,6 +10,10 @@
     color: #a8aebf;
 }
 
+.item-bar:hover {
+    cursor: pointer;
+}
+
 .active {
     color: #fff;
 }

@@ -1,6 +1,7 @@
 .btn {
     border-radius: 12px;
     padding: 16px 32px;
+    max-width: 201px;
 }
 
 .btn_primary {

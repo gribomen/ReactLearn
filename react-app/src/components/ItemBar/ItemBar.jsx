@@ -2,7 +2,7 @@ import styles from './ItemBar.module.css';
 import cn from 'classnames';
 
 
-function ItemBar({ text, icon = 'none', active = '' }) {
+function ItemBar({ text, icon = 'none', active = '', onClick }) {
     let el;
     switch (icon) {
         case 'count': {
@@ -19,7 +19,7 @@ function ItemBar({ text, icon = 'none', active = '' }) {
         }
     }
     return (
-        <div className={cn(styles['item-bar'], styles[active])}>{text}{el}</div>
+        <div className={cn(styles['item-bar'], styles[active])} onClick={onClick}>{text}{el}</div>
     );
 }
 

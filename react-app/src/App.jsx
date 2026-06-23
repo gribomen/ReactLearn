@@ -1,11 +1,14 @@
 //import React from 'react';
 import './App.module.css';
-import MainView from './view/MainView';
+import AutorizationView from './view/AutorizationView/AutorizationView';
+import MainView from './view/MainView/MainView';
 
 function App() {
-
   return (
-    <MainView></MainView>
+    <>
+      <MainView></MainView>
+      <AutorizationView></AutorizationView>
+    </>
   );
 }
 

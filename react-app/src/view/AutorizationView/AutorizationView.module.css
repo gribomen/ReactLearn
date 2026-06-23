@@ -1,0 +1,10 @@
+.main {
+    backdrop-filter: blur(40px);
+    background: #121829;
+}
+
+.wrapper-autorization {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+}
