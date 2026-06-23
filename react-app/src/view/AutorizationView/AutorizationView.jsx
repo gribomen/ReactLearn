@@ -12,12 +12,18 @@ import { useRef, useState, useEffect } from 'react';
 function AutorizationView() {
     const inputRef = useRef();
     const [profil, setProfil] = useState({ name: '', isLogined: false });
-    const [profils, setProfils] = useState([]);
+    const [profils, setProfils] = useState(() => {
+        try {
+            const item = localStorage.getItem('profils');
+            return item ? JSON.parse(item) : [];
+        } catch (error) {
+            console.error(`Ошибка чтения localStorage ключа "profils": `, error);
+        }
+    });
 
     useEffect(() => {
-        const storage = JSON.parse(localStorage.getItem('profils'));
-        setProfils(storage);
-    }, []);
+        localStorage.setItem('profils', JSON.stringify(profils));
+    }, [profils]);
 
     const onClick = () => {
         if (!inputRef.current.value) {
@@ -36,11 +42,12 @@ function AutorizationView() {
     };
 
     const btnExit = () => {
-        profils.forEach(item => {
+        setProfils(profils.map(item => {
             if (item === profil) {
                 item.isLogined = false;
             }
-        });
+            return item;
+        }));
         setProfil({ name: '', isLogined: false });
     };
     return (
