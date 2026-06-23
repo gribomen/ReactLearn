@@ -17,7 +17,7 @@ function AutorizationView() {
             const item = localStorage.getItem('profils');
             return item ? JSON.parse(item) : [];
         } catch (error) {
-            console.error(`Ошибка чтения localStorage ключа "profils": `, error);
+            console.error('Ошибка чтения localStorage ключа "profils": ', error);
         }
     });
 
@@ -44,7 +44,7 @@ function AutorizationView() {
     const btnExit = () => {
         setProfils(profils.map(item => {
             if (item === profil) {
-                item.isLogined = false;
+                return { ...item, isLogined: false };
             }
             return item;
         }));
