@@ -6,6 +6,7 @@ import JournalForm from './components/JournalForm/JournalForm';
 import LeftPanel from './components/layouts/LeftPanel/LeftPanel';
 import Body from './components/layouts/Body/Body';
 import { useLocalStorage } from './hook/use-localstorage.hook';
+import { UserContext } from './context/user.context';
 
 function mapItems(items) {
   if (!items) {
@@ -33,16 +34,18 @@ function App() {
   };
 
   return (
-    <div className='app'>
-      <LeftPanel>
-        <Header />
-        <JournalAddButton />
-        <JournalList items={mapItems(journalItems)} />
-      </LeftPanel>
-      <Body>
-        <JournalForm onSubmit={addItem} />
-      </Body>
-    </div>
+    <UserContext.Provider value={{ userId: 1 }}>
+      <div className='app'>
+        <LeftPanel>
+          <Header />
+          <JournalAddButton />
+          <JournalList items={mapItems(journalItems)} />
+        </LeftPanel>
+        <Body>
+          <JournalForm onSubmit={addItem} />
+        </Body>
+      </div>
+    </UserContext.Provider>
   );
 }
 

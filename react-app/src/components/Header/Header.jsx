@@ -1,8 +1,17 @@
+import SelectUser from '../SelectUser/SelectUser';
 import styles from './Header.module.css';
 
-function Header() {
+function Header({ changedUser }) {
+    const changeUser = (e) => {
+        console.log(e.target.value);
+        changedUser(e.target.value);
+    };
+
     return (
-        <img className={styles.logo} src="/logo.svg" alt="Логотип журнала" />
+        <>
+            <img className={styles.logo} src="/logo.svg" alt="Логотип журнала" />
+            <SelectUser changedUser={changeUser} />
+        </>
     );
 }
 
