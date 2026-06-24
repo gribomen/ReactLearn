@@ -7,48 +7,46 @@ import HeaderBar from '../../components/HeaderBar/HeaderBar';
 import ItemBar from '../../components/ItemBar/ItemBar';
 import Search from '../../components/Search/Search';
 import MainContent from '../../components/MainContent/MainContent';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useContext } from 'react';
+import { UserProfile } from '../../context/userprofil.context';
+import { UserProfiles } from '../../context/userprofiles.context';
 
 function AutorizationView() {
     const inputRef = useRef();
-    const [profil, setProfil] = useState({ name: '', isLogined: false });
-    const [profils, setProfils] = useState(() => {
-        try {
-            const item = localStorage.getItem('profils');
-            return item ? JSON.parse(item) : [];
-        } catch (error) {
-            console.error('Ошибка чтения localStorage ключа "profils": ', error);
-        }
-    });
-
-    useEffect(() => {
-        localStorage.setItem('profils', JSON.stringify(profils));
-    }, [profils]);
+    const { profiles, setProfiles } = useContext(UserProfiles);
+    const { profile, setProfile } = useContext(UserProfile);
 
     const onClick = () => {
         if (!inputRef.current.value) {
             return;
         }
-        const currenProfil = profils.find(item => item.name === inputRef.current.value);
+        setProfiles([...profiles.map(item => {
+            if (item == profile) {
+                item.isLogined = false;
+                return item;
+            }
+            return item;
+        })]);
+        const currenProfil = profiles.find(item => item.name === inputRef.current.value);
         if (currenProfil) {
             currenProfil.isLogined = true;
-            setProfil(currenProfil);
+            setProfile(currenProfil);
+            setProfiles([...profiles]);
         } else {
-            console.log(profil, profils);
             const el = { name: inputRef.current.value, isLogined: true };
-            setProfil(el);
-            setProfils([...profils, el]);
+            setProfile(el);
+            setProfiles([...profiles, el]);
         }
     };
 
     const btnExit = () => {
-        setProfils(profils.map(item => {
-            if (item === profil) {
+        setProfiles(profiles.map(item => {
+            if (item === profile) {
                 return { ...item, isLogined: false };
             }
             return item;
         }));
-        setProfil({ name: '', isLogined: false });
+        setProfile({ name: '', isLogined: false });
     };
     return (
         <div className={styles.main}>
@@ -56,7 +54,7 @@ function AutorizationView() {
                 <HeaderBar>
                     <ItemBar text={'Поиск фильмов'} active={'active'} />
                     <ItemBar text={'Мои фильмы'} icon='count' />
-                    <ItemBar text={profil.name && profil.isLogined ? profil.name : ''} icon='profile' />
+                    <ItemBar text={profile.name && profile.isLogined ? profile.name : ''} icon='profile' />
                     <ItemBar text={'Выйти'} onClick={btnExit} />
                 </HeaderBar>
             </HeaderNavPanel>
