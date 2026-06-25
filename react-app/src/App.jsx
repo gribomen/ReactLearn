@@ -21,7 +21,7 @@ function mapItems(items) {
 }
 
 function App() {
-
+  console.log('App');
   const [journalItems, setItems] = useLocalStorage('data');
 
   const addItem = item => {

@@ -92,7 +92,7 @@ function JournalForm({ onSubmit }) {
                     [styles['invalid']]: !isValid.text
                 })}>
             </textarea>
-            <Button text="Сохранить" type="submit" />
+            <Button type="submit">Сохранить</Button>
         </form>
     );
 }
