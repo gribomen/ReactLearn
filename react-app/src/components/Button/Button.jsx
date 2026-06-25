@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import './Button.css';
 function Button({ children, onClick }) {
 	console.log('Button');
@@ -6,4 +7,4 @@ function Button({ children, onClick }) {
 	);
 }
 
-export default Button;
+export default memo(Button);

@@ -11,7 +11,7 @@ function Header() {
     const toggleLog = () => {
         setLogoIndex(state => Number(!state));
     };
-    console.log('Header');
+
     return (
         <>
             <Logo image={logos[logoIndex]} />
