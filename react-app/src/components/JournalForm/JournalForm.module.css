@@ -49,17 +49,6 @@
     width: 100%;
 }
 
-.input-title {
-    background: none;
-    border: none;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    font-family: "Source Sans Pro", sans-serif;
-    border-bottom: 1px solid #323232;
-}
-
 .invalid {
     border: 1px solid red;
     background: rgb(113, 13, 13);

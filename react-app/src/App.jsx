@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
@@ -6,47 +5,46 @@ import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import JournalForm from './components/JournalForm/JournalForm';
 import LeftPanel from './components/layouts/LeftPanel/LeftPanel';
 import Body from './components/layouts/Body/Body';
+import { useLocalStorage } from './hook/use-localstorage.hook';
+import { UserContextProvider } from './context/user.context';
+
+function mapItems(items) {
+  if (!items) {
+    return [];
+  }
+
+  return items.map(i => ({
+    ...i,
+    date: new Date(i.date)
+  }));
+
+}
 
 function App() {
-
-  const [journalItems, setItems] = useState([]);
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('data'));
-    if (data) {
-      setItems(data.map(item => ({
-        ...item,
-        date: new Date(item.date)
-      })));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (journalItems.length) {
-      localStorage.setItem('data', JSON.stringify(journalItems));
-    }
-  }, [journalItems]);
+  console.log('App');
+  const [journalItems, setItems] = useLocalStorage('data');
 
   const addItem = item => {
-    setItems(oldItems => [...oldItems, {
-      text: item.text,
-      title: item.title,
+    setItems([...mapItems(journalItems), {
+      ...item,
       date: new Date(item.date),
-      id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1
+      id: journalItems.length > 0 ? Math.max(...journalItems.map(i => i.id)) + 1 : 1
     }]);
   };
 
   return (
-    <div className='app'>
-      <LeftPanel>
-        <Header />
-        <JournalAddButton />
-        <JournalList items={journalItems} />
-      </LeftPanel>
-      <Body>
-        <JournalForm onSubmit={addItem} />
-      </Body>
-    </div>
+    <UserContextProvider>
+      <div className='app'>
+        <LeftPanel>
+          <Header />
+          <JournalAddButton />
+          <JournalList items={mapItems(journalItems)} />
+        </LeftPanel>
+        <Body>
+          <JournalForm onSubmit={addItem} />
+        </Body>
+      </div>
+    </UserContextProvider >
   );
 }
 
