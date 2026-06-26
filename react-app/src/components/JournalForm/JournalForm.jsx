@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { formReducer, INITIAL_STATE } from './JournalForm.state';
 import { UserContext } from '../../context/user.context';
 
-function JournalForm({ onSubmit }) {
+function JournalForm({ onSubmit, data }) {
     const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
     const { isValid, isFormReadyToSubmit, values } = formState;
     const titleRef = useRef();
@@ -34,6 +34,10 @@ function JournalForm({ onSubmit }) {
     };
 
     useEffect(() => {
+        dispatchForm({ type: 'SET_VALUE', payload: { ...data } });
+    }, [data]);
+
+    useEffect(() => {
         let timerId;
         if (!isValid.date || !isValid.text || !isValid.title) {
             timerId = setTimeout(() => {
@@ -50,21 +54,23 @@ function JournalForm({ onSubmit }) {
         if (isFormReadyToSubmit) {
             onSubmit(values);
             dispatchForm({ type: 'CLEAR' });
+            dispatchForm({ type: 'SET_VALUE', payload: { userId } });
         }
-    }, [isFormReadyToSubmit, values, onSubmit]);
+    }, [isFormReadyToSubmit, values, onSubmit, userId]);
 
     useEffect(() => {
         dispatchForm({ type: 'SET_VALUE', payload: { userId } });
     }, [userId]);
 
     const onChange = (e) => {
+        console.log({ [e.target.name]: e.target.value });
         dispatchForm({ type: 'SET_VALUE', payload: { [e.target.name]: e.target.value } });
     };
     const addJournalItem = (e) => {
         e.preventDefault();
         dispatchForm({ type: 'SUBMIT' });
     };
-
+    console.log(formState);
     return (
         <form className={`${styles['journal-form']}`} onSubmit={addJournalItem}>
             <div>
@@ -76,7 +82,7 @@ function JournalForm({ onSubmit }) {
                     <img src="/calendary.svg" alt="Иконка календаря" />
                     <span>Дата</span>
                 </label>
-                <Input type="date" name='date' value={values.date} onChange={onChange} ref={dateRef}
+                <Input type="date" name='date' value={values.date ? new Date(values.date).toISOString().slice(0, 10) : ''} onChange={onChange} ref={dateRef}
                     id='date' isValid={isValid.date} />
             </div>
             <div className={styles['form-row']}>
