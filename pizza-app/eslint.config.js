@@ -18,5 +18,16 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
+    rules: {
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true }
+      ],
+      'semi': ['error', 'always', { 'omitLastInOneLineBlock': false }],
+      'comma-dangle': ['error', 'never'],
+      quotes: ['error', 'single'],
+      'react/prop-types': [0],
+      'indent': ['error', 'tab']
+    }
   },
 ])
