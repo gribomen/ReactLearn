@@ -1,60 +1,60 @@
 .card-film {
-    position: relative;
-    border-radius: 12px;
-    padding: 8px 8px 16px;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(80px);
-    background: rgba(32, 40, 62, 0.8);
+	position: relative;
+	border-radius: 12px;
+	padding: 8px 8px 16px;
+	display: flex;
+	flex-direction: column;
+	backdrop-filter: blur(80px);
+	background: rgba(32, 40, 62, 0.8);
 }
 
 .card-film__main-img {
-    margin-bottom: 16px;
-    max-width: 100%;
-    height: auto;
+	margin-bottom: 16px;
+	max-width: 100%;
+	height: auto;
 }
 
 .card-film__description {
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
 }
 
 .wrapper-favorites {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .wrapper-favorites {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 
 .wrapper-count {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.65);
-    border-radius: 8px;
-    padding: 4px 8px;
-    display: flex;
-    gap: 4px;
-    align-content: center;
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	backdrop-filter: blur(8px);
+	background: rgba(0, 0, 0, 0.65);
+	border-radius: 8px;
+	padding: 4px 8px;
+	display: flex;
+	gap: 4px;
+	align-content: center;
 }
 
 .wrapper-count img {
-    height: 16px;
-    width: 16px;
-    margin-top: 2px;
+	height: 16px;
+	width: 16px;
+	margin-top: 2px;
 }
 
 .wrapper-count span {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #ffad49;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 150%;
+	color: #ffad49;
 }
