@@ -30,7 +30,7 @@ export function Layout() {
 				Выход
 			</Button>
 		</div>
-		<div>
+		<div className={styles['conten']}>
 			<Outlet />
 		</div>
 	</div>;
