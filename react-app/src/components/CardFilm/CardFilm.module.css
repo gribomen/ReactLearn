@@ -21,17 +21,32 @@
 	gap: 16px;
 }
 
+.card-film__description span{
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: 0.02em;
+	color: #ebeef5;
+}
 .wrapper-favorites {
 	display: flex;
 	align-items: center;
 	gap: 8px;
-}
-
-.wrapper-favorites {
 	cursor: pointer;
 }
+.wrapper-favorites span {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 150%;
+	letter-spacing: 0.02em;
+}
+.wrapper-favorites .no-active {
+	color: #7b6ef6;
+}
 
-
+.wrapper-favorites .active {
+	color: #37d8a7
+}
 .wrapper-count {
 	position: absolute;
 	top: 16px;

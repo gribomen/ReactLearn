@@ -1,8 +1,9 @@
+import type { HTMLAttributes, ReactNode } from 'react';
 import type React from 'react';
 
-export interface ItemBarProps {
+export interface ItemBarProps extends HTMLAttributes<HTMLDivElement>{
 	text: string;
 	icon?: 'none' | 'count' | 'exit' | 'profile';
-	active?: string,
 	onClick?: React.MouseEventHandler;
+	isActive?:ReactNode;
 }

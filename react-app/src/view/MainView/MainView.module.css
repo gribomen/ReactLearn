@@ -1,10 +1,5 @@
-.main {
-    backdrop-filter: blur(40px);
-    background: #121829;
-}
-
 .wrapper-search {
-    display: flex;
-    margin-bottom: 80px;
-    gap: 8px;
+	display: flex;
+	margin-bottom: 80px;
+	gap: 8px;
 }

@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import styles from './CardFilm.module.css';
 import type { CardFilmProps } from './CardFilm.props';
+import cn from 'classnames';
 
 const CardFilm: FC<CardFilmProps> = ({ url, nameAlt, name, isFavorites, count }) => {
 	return (
@@ -10,8 +11,11 @@ const CardFilm: FC<CardFilmProps> = ({ url, nameAlt, name, isFavorites, count })
 				<span>{name}</span>
 				<div className={styles['wrapper-favorites']}>
 					<img src={isFavorites ? '../../public/favorite/bookmark.png' : '../../public/favorite/like.png'}
-						alt={isFavorites ? 'в избраном' : 'в избранное'} />
-					<span>{isFavorites ? 'В избраном' : 'В избранное'} </span>
+						alt={isFavorites ? 'в избраном' : 'в избранное'}/>
+					<span className={cn({
+						[styles['active']]:isFavorites,
+						[styles['no-active']]:!isFavorites
+					})}>{isFavorites ? 'В избраном' : 'В избранное'} </span>
 				</div>
 			</div>
 			<div className={styles['wrapper-count']}>

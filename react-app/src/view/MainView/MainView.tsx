@@ -2,15 +2,11 @@
 import styles from './MainView.module.css';
 import Button from '../../components/Button/Button';
 import HeaderText from '../../components/HeaderText/HeaderText';
-import HeaderNavPanel from '../../components/HeaderNavPanel/HeaderNavPanel';
-import HeaderBar from '../../components/HeaderBar/HeaderBar';
-import ItemBar from '../../components/ItemBar/ItemBar';
 import Search from '../../components/Search/Search';
 import ParagraphText from '../../components/ParagraphText/ParagraphText';
 import MainContent from '../../components/MainContent/MainContent';
 import PlaceCards from '../../components/PlaceCards/PlaceCards';
 import type { ICardFilm } from '../../types/CardFilm';
-
 function MainView() {
 	const massFilms: ICardFilm[] = [{
 		id: 1,
@@ -78,36 +74,27 @@ function MainView() {
 	}];
 
 	return (
-		<div className={styles.main}>
-			<HeaderNavPanel>
-				<HeaderBar>
-					<ItemBar text={'Поиск фильмов'} active={'active'} />
-					<ItemBar text={'Мои фильмы'} icon='count' />
-					<ItemBar text={'Войти'} icon='exit' />
-				</HeaderBar>
-			</HeaderNavPanel>
-			<MainContent>
-				<>
-					<HeaderText
-						fontSize='64'
-						text='Поиск'
-					/>
-					<ParagraphText
-						fontSize='16'
-						text='Введите название фильма, сериала или мультфильма для поиска и 
-              добавления в избранное.'
-					/>
-				</>
-				<div className={styles['wrapper-search']}>
-					<Search placeholder={'Введите название'} isIcon={true} size={37} />
-					<Button
-						text="Искать"
-					/>
-				</div>
-				<PlaceCards massFilms={massFilms} />
+		<MainContent>
+			<>
+				<HeaderText
+					fontSize='64'
+					text='Поиск'
+				/>
+				<ParagraphText
+					fontSize='16'
+					text='Введите название фильма, сериала или мультфильма для поиска и 
+        добавления в избранное.'
+				/>
+			</>
+			<div className={styles['wrapper-search']}>
+				<Search placeholder={'Введите название'} isIcon={true} size={37} />
+				<Button
+					text="Искать"
+				/>
+			</div>
+			<PlaceCards massFilms={massFilms} />
 
-			</MainContent>
-		</div>
+		</MainContent>
 	);
 }
 

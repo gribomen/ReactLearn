@@ -4,7 +4,8 @@ import type { ItemBarProps } from './ItemBar.props';
 import type { FC } from 'react';
 
 
-const ItemBar: FC<ItemBarProps> = ({ text, icon = 'none', active = '', onClick }) => {
+const ItemBar: FC<ItemBarProps> = ({ text, icon = 'none', onClick, isActive}) => {
+	// console.log(isActive);
 	let el: React.ReactNode;
 	switch (icon) {
 	case 'count': {
@@ -21,7 +22,9 @@ const ItemBar: FC<ItemBarProps> = ({ text, icon = 'none', active = '', onClick }
 	}
 	}
 	return (
-		<div className={cn(styles['item-bar'], styles[active])} onClick={onClick}>{text}{el}</div>
+		<div className={cn(styles['item-bar'],{
+			[styles['active']]:isActive
+		})} onClick={onClick}>{text}{el}</div>
 	);
 };
 
