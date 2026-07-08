@@ -1,0 +1,18 @@
+import type { FC } from 'react';
+import ProductCard from '../../../components/ProductCard/ProductCard';
+import type { Product } from '../../../interfaces/product.interface';
+import type { MenuListProps } from './MenuList.props';
+
+export const MenuList:FC<MenuListProps> = ({products}) => {
+	return(products.map((p:Product) => (
+		<ProductCard
+			key={p.id}
+			id={p.id}
+			name={p.name}
+			description={p.ingredients.join(', ')}
+			rating={p.rating}
+			price={p.price}
+			image={p.image}
+		/>
+	)));
+};
